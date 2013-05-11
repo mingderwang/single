@@ -25,6 +25,7 @@
 		3A435DBB173E29C90085FF88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A435DB9173E29C90085FF88 /* InfoPlist.strings */; };
 		3A435DBE173E29C90085FF88 /* singleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A435DBD173E29C90085FF88 /* singleTests.m */; };
 		3A72E950173E43A600E86F31 /* MySidePanelControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A72E94F173E43A600E86F31 /* MySidePanelControllerViewController.m */; };
+		3A72E953173E4CA300E86F31 /* JALeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A72E952173E4CA200E86F31 /* JALeftViewController.m */; };
 		D603BB52B3794E95850C315D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 613EBCF0AC1F471AA8E1599C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,8 @@
 		3A435DBD173E29C90085FF88 /* singleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = singleTests.m; sourceTree = "<group>"; };
 		3A72E94E173E43A600E86F31 /* MySidePanelControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySidePanelControllerViewController.h; sourceTree = "<group>"; };
 		3A72E94F173E43A600E86F31 /* MySidePanelControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySidePanelControllerViewController.m; sourceTree = "<group>"; };
+		3A72E951173E4CA200E86F31 /* JALeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALeftViewController.h; sourceTree = "<group>"; };
+		3A72E952173E4CA200E86F31 /* JALeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALeftViewController.m; sourceTree = "<group>"; };
 		613EBCF0AC1F471AA8E1599C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A49791BCD64167B4E28849 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -137,6 +140,8 @@
 				3A72E94E173E43A600E86F31 /* MySidePanelControllerViewController.h */,
 				3A72E94F173E43A600E86F31 /* MySidePanelControllerViewController.m */,
 				3A435D90173E29C80085FF88 /* Supporting Files */,
+				3A72E951173E4CA200E86F31 /* JALeftViewController.h */,
+				3A72E952173E4CA200E86F31 /* JALeftViewController.m */,
 			);
 			path = single;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				3A435D9A173E29C80085FF88 /* MDAppDelegate.m in Sources */,
 				3A435DA9173E29C90085FF88 /* MDViewController.m in Sources */,
 				3A72E950173E43A600E86F31 /* MySidePanelControllerViewController.m in Sources */,
+				3A72E953173E4CA300E86F31 /* JALeftViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

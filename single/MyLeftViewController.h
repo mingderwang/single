@@ -1,5 +1,5 @@
 //
-//  JALeftViewController.h
+//  MyLeftViewController.h
 //  single
 //
 //  Created by Wang Ming-der on 5/11/13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JALeftViewController : UIViewController {
+@interface MyLeftViewController : UIViewController {
     IBOutlet UIButton *buttonToCenter;
 }
 - (IBAction)showCenter:(id)sender;

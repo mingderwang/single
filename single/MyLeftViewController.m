@@ -1,21 +1,21 @@
 //
-//  JALeftViewController.m
+//  MyLeftViewController.m
 //  single
 //
 //  Created by Wang Ming-der on 5/11/13.
 //  Copyright (c) 2013 Kat Digital Corp. All rights reserved.
 //
 
-#import "JALeftViewController.h"
+#import "MyLeftViewController.h"
 
 #import "JASidePanelController.h"
 #import "UIViewController+JASidePanel.h"
 
-@interface JALeftViewController ()
+@interface MyLeftViewController ()
 
 @end
 
-@implementation JALeftViewController
+@implementation MyLeftViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

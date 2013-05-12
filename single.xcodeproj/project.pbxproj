@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A340117173F977700AA668D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A340116173F977600AA668D /* Settings.bundle */; };
+		3A34011B173FAA1400AA668D /* MyRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A34011A173FAA1300AA668D /* MyRightViewController.m */; };
 		3A435D8A173E29C80085FF88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435D89173E29C80085FF88 /* UIKit.framework */; };
 		3A435D8C173E29C80085FF88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435D8B173E29C80085FF88 /* Foundation.framework */; };
 		3A435D8E173E29C80085FF88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435D8D173E29C80085FF88 /* CoreGraphics.framework */; };
@@ -18,14 +20,13 @@
 		3A435DA0173E29C80085FF88 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A435D9F173E29C80085FF88 /* Default-568h@2x.png */; };
 		3A435DA3173E29C90085FF88 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A435DA1173E29C90085FF88 /* MainStoryboard_iPhone.storyboard */; };
 		3A435DA6173E29C90085FF88 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A435DA4173E29C90085FF88 /* MainStoryboard_iPad.storyboard */; };
-		3A435DA9173E29C90085FF88 /* MDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A435DA8173E29C90085FF88 /* MDViewController.m */; };
 		3A435DB1173E29C90085FF88 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435DB0173E29C90085FF88 /* SenTestingKit.framework */; };
 		3A435DB2173E29C90085FF88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435D89173E29C80085FF88 /* UIKit.framework */; };
 		3A435DB3173E29C90085FF88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435D8B173E29C80085FF88 /* Foundation.framework */; };
 		3A435DBB173E29C90085FF88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A435DB9173E29C90085FF88 /* InfoPlist.strings */; };
 		3A435DBE173E29C90085FF88 /* singleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A435DBD173E29C90085FF88 /* singleTests.m */; };
 		3A72E950173E43A600E86F31 /* MySidePanelControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A72E94F173E43A600E86F31 /* MySidePanelControllerViewController.m */; };
-		3A72E953173E4CA300E86F31 /* JALeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A72E952173E4CA200E86F31 /* JALeftViewController.m */; };
+		3A72E953173E4CA300E86F31 /* MyLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A72E952173E4CA200E86F31 /* MyLeftViewController.m */; };
 		D603BB52B3794E95850C315D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 613EBCF0AC1F471AA8E1599C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A340116173F977600AA668D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		3A340119173FAA1300AA668D /* MyRightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRightViewController.h; sourceTree = "<group>"; };
+		3A34011A173FAA1300AA668D /* MyRightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRightViewController.m; sourceTree = "<group>"; };
 		3A435D86173E29C80085FF88 /* single.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = single.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A435D89173E29C80085FF88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3A435D8B173E29C80085FF88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,8 +59,6 @@
 		3A435D9F173E29C80085FF88 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		3A435DA2173E29C90085FF88 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		3A435DA5173E29C90085FF88 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		3A435DA7173E29C90085FF88 /* MDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDViewController.h; sourceTree = "<group>"; };
-		3A435DA8173E29C90085FF88 /* MDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDViewController.m; sourceTree = "<group>"; };
 		3A435DAF173E29C90085FF88 /* singleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = singleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A435DB0173E29C90085FF88 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		3A435DB8173E29C90085FF88 /* singleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "singleTests-Info.plist"; sourceTree = "<group>"; };
@@ -65,8 +67,8 @@
 		3A435DBD173E29C90085FF88 /* singleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = singleTests.m; sourceTree = "<group>"; };
 		3A72E94E173E43A600E86F31 /* MySidePanelControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySidePanelControllerViewController.h; sourceTree = "<group>"; };
 		3A72E94F173E43A600E86F31 /* MySidePanelControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySidePanelControllerViewController.m; sourceTree = "<group>"; };
-		3A72E951173E4CA200E86F31 /* JALeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALeftViewController.h; sourceTree = "<group>"; };
-		3A72E952173E4CA200E86F31 /* JALeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALeftViewController.m; sourceTree = "<group>"; };
+		3A72E951173E4CA200E86F31 /* MyLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLeftViewController.h; sourceTree = "<group>"; };
+		3A72E952173E4CA200E86F31 /* MyLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLeftViewController.m; sourceTree = "<group>"; };
 		613EBCF0AC1F471AA8E1599C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A49791BCD64167B4E28849 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -96,6 +98,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A340110173F8E4D00AA668D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3A435D98173E29C80085FF88 /* MDAppDelegate.h */,
+				3A435D99173E29C80085FF88 /* MDAppDelegate.m */,
+				3A72E94E173E43A600E86F31 /* MySidePanelControllerViewController.h */,
+				3A72E94F173E43A600E86F31 /* MySidePanelControllerViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		3A340111173F8EB400AA668D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3A72E951173E4CA200E86F31 /* MyLeftViewController.h */,
+				3A72E952173E4CA200E86F31 /* MyLeftViewController.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		3A340118173FA94400AA668D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3A340119173FAA1300AA668D /* MyRightViewController.h */,
+				3A34011A173FAA1300AA668D /* MyRightViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		3A435D7D173E29C80085FF88 = {
 			isa = PBXGroup;
 			children = (
@@ -131,17 +162,10 @@
 		3A435D8F173E29C80085FF88 /* single */ = {
 			isa = PBXGroup;
 			children = (
-				3A435D98173E29C80085FF88 /* MDAppDelegate.h */,
-				3A435D99173E29C80085FF88 /* MDAppDelegate.m */,
-				3A435DA1173E29C90085FF88 /* MainStoryboard_iPhone.storyboard */,
-				3A435DA4173E29C90085FF88 /* MainStoryboard_iPad.storyboard */,
-				3A435DA7173E29C90085FF88 /* MDViewController.h */,
-				3A435DA8173E29C90085FF88 /* MDViewController.m */,
-				3A72E94E173E43A600E86F31 /* MySidePanelControllerViewController.h */,
-				3A72E94F173E43A600E86F31 /* MySidePanelControllerViewController.m */,
+				3A340110173F8E4D00AA668D /* Home */,
+				3A340111173F8EB400AA668D /* Search */,
+				3A340118173FA94400AA668D /* Settings */,
 				3A435D90173E29C80085FF88 /* Supporting Files */,
-				3A72E951173E4CA200E86F31 /* JALeftViewController.h */,
-				3A72E952173E4CA200E86F31 /* JALeftViewController.m */,
 			);
 			path = single;
 			sourceTree = "<group>";
@@ -149,6 +173,9 @@
 		3A435D90173E29C80085FF88 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A340116173F977600AA668D /* Settings.bundle */,
+				3A435DA1173E29C90085FF88 /* MainStoryboard_iPhone.storyboard */,
+				3A435DA4173E29C90085FF88 /* MainStoryboard_iPad.storyboard */,
 				3A435D91173E29C80085FF88 /* single-Info.plist */,
 				3A435D92173E29C80085FF88 /* InfoPlist.strings */,
 				3A435D95173E29C80085FF88 /* main.m */,
@@ -259,6 +286,7 @@
 				3A435DA0173E29C80085FF88 /* Default-568h@2x.png in Resources */,
 				3A435DA3173E29C90085FF88 /* MainStoryboard_iPhone.storyboard in Resources */,
 				3A435DA6173E29C90085FF88 /* MainStoryboard_iPad.storyboard in Resources */,
+				3A340117173F977700AA668D /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,9 +351,9 @@
 			files = (
 				3A435D96173E29C80085FF88 /* main.m in Sources */,
 				3A435D9A173E29C80085FF88 /* MDAppDelegate.m in Sources */,
-				3A435DA9173E29C90085FF88 /* MDViewController.m in Sources */,
 				3A72E950173E43A600E86F31 /* MySidePanelControllerViewController.m in Sources */,
-				3A72E953173E4CA300E86F31 /* JALeftViewController.m in Sources */,
+				3A72E953173E4CA300E86F31 /* MyLeftViewController.m in Sources */,
+				3A34011B173FAA1400AA668D /* MyRightViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

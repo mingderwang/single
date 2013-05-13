@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A340117173F977700AA668D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A340116173F977600AA668D /* Settings.bundle */; };
-		3A34011B173FAA1400AA668D /* MyRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A34011A173FAA1300AA668D /* MyRightViewController.m */; };
 		3A435D8A173E29C80085FF88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435D89173E29C80085FF88 /* UIKit.framework */; };
 		3A435D8C173E29C80085FF88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435D8B173E29C80085FF88 /* Foundation.framework */; };
 		3A435D8E173E29C80085FF88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435D8D173E29C80085FF88 /* CoreGraphics.framework */; };
@@ -42,8 +41,6 @@
 
 /* Begin PBXFileReference section */
 		3A340116173F977600AA668D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		3A340119173FAA1300AA668D /* MyRightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRightViewController.h; sourceTree = "<group>"; };
-		3A34011A173FAA1300AA668D /* MyRightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRightViewController.m; sourceTree = "<group>"; };
 		3A435D86173E29C80085FF88 /* single.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = single.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A435D89173E29C80085FF88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3A435D8B173E29C80085FF88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -118,15 +115,6 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
-		3A340118173FA94400AA668D /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				3A340119173FAA1300AA668D /* MyRightViewController.h */,
-				3A34011A173FAA1300AA668D /* MyRightViewController.m */,
-			);
-			name = Settings;
-			sourceTree = "<group>";
-		};
 		3A435D7D173E29C80085FF88 = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +152,6 @@
 			children = (
 				3A340110173F8E4D00AA668D /* Home */,
 				3A340111173F8EB400AA668D /* Search */,
-				3A340118173FA94400AA668D /* Settings */,
 				3A435D90173E29C80085FF88 /* Supporting Files */,
 			);
 			path = single;
@@ -353,7 +340,6 @@
 				3A435D9A173E29C80085FF88 /* MDAppDelegate.m in Sources */,
 				3A72E950173E43A600E86F31 /* MySidePanelControllerViewController.m in Sources */,
 				3A72E953173E4CA300E86F31 /* MyLeftViewController.m in Sources */,
-				3A34011B173FAA1400AA668D /* MyRightViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,9 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+#import "Example.h"
 
-@interface MDAppDelegate : UIResponder <UIApplicationDelegate>
-
+@interface MDAppDelegate : UIResponder <UIApplicationDelegate> {
+    NSManagedObjectModel *managedObjectModel;
+    NSManagedObjectContext *managedObjectContext;
+    NSPersistentStoreCoordinator *persistentStoreCoordinator;
+    
+    UITableView *tableView;
+	NSMutableArray *itemArray;
+}
+@property (nonatomic, retain) NSMutableArray *itemArray;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

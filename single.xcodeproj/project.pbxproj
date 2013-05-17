@@ -10,6 +10,9 @@
 		3A10359417466A4D008C6AB7 /* OnlineHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A10359317466A4D008C6AB7 /* OnlineHelpViewController.m */; };
 		3A1035A817466AF7008C6AB7 /* css.css in Resources */ = {isa = PBXBuildFile; fileRef = 3A10359F17466AF7008C6AB7 /* css.css */; };
 		3A1035A917466AF7008C6AB7 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3A1035A017466AF7008C6AB7 /* index.html */; };
+		3A1035AD17467C3B008C6AB7 /* CodeDataExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A1035AB17467C3B008C6AB7 /* CodeDataExample.xcdatamodeld */; };
+		3A1035B017467CDB008C6AB7 /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1035AF17467CDB008C6AB7 /* Example.m */; };
+		3A1035B217468114008C6AB7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1035B117468113008C6AB7 /* CoreData.framework */; };
 		3A340117173F977700AA668D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A340116173F977600AA668D /* Settings.bundle */; };
 		3A435D8A173E29C80085FF88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435D89173E29C80085FF88 /* UIKit.framework */; };
 		3A435D8C173E29C80085FF88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435D8B173E29C80085FF88 /* Foundation.framework */; };
@@ -48,6 +51,10 @@
 		3A10359317466A4D008C6AB7 /* OnlineHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineHelpViewController.m; sourceTree = "<group>"; };
 		3A10359F17466AF7008C6AB7 /* css.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = css.css; sourceTree = "<group>"; };
 		3A1035A017466AF7008C6AB7 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		3A1035AC17467C3B008C6AB7 /* CodeDataExample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CodeDataExample.xcdatamodel; sourceTree = "<group>"; };
+		3A1035AE17467CDB008C6AB7 /* Example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example.h; sourceTree = "<group>"; };
+		3A1035AF17467CDB008C6AB7 /* Example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example.m; sourceTree = "<group>"; };
+		3A1035B117468113008C6AB7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3A340116173F977600AA668D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		3A435D86173E29C80085FF88 /* single.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = single.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A435D89173E29C80085FF88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -85,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A1035B217468114008C6AB7 /* CoreData.framework in Frameworks */,
 				3A435D8A173E29C80085FF88 /* UIKit.framework in Frameworks */,
 				3A435D8C173E29C80085FF88 /* Foundation.framework in Frameworks */,
 				3A435D8E173E29C80085FF88 /* CoreGraphics.framework in Frameworks */,
@@ -140,6 +148,16 @@
 			path = css;
 			sourceTree = "<group>";
 		};
+		3A1035AA17467C17008C6AB7 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3A1035AB17467C3B008C6AB7 /* CodeDataExample.xcdatamodeld */,
+				3A1035AE17467CDB008C6AB7 /* Example.h */,
+				3A1035AF17467CDB008C6AB7 /* Example.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		3A340110173F8E4D00AA668D /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,18 +169,20 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
-		3A340111173F8EB400AA668D /* Search */ = {
+		3A340111173F8EB400AA668D /* SearchList */ = {
 			isa = PBXGroup;
 			children = (
+				3A1035AA17467C17008C6AB7 /* CoreData */,
 				3A72E951173E4CA200E86F31 /* MyLeftViewController.h */,
 				3A72E952173E4CA200E86F31 /* MyLeftViewController.m */,
 			);
-			name = Search;
+			name = SearchList;
 			sourceTree = "<group>";
 		};
 		3A435D7D173E29C80085FF88 = {
 			isa = PBXGroup;
 			children = (
+				3A1035B117468113008C6AB7 /* CoreData.framework */,
 				3A435D8F173E29C80085FF88 /* single */,
 				3A435DB6173E29C90085FF88 /* singleTests */,
 				3A435D88173E29C80085FF88 /* Frameworks */,
@@ -196,7 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				3A340110173F8E4D00AA668D /* Home */,
-				3A340111173F8EB400AA668D /* Search */,
+				3A340111173F8EB400AA668D /* SearchList */,
 				3ABD1BDE1743E003000C08D0 /* Settings */,
 				3A10359117466A25008C6AB7 /* Online Help */,
 				3A435D90173E29C80085FF88 /* Supporting Files */,
@@ -401,6 +421,8 @@
 				3A72E953173E4CA300E86F31 /* MyLeftViewController.m in Sources */,
 				3ABD1BE41743E072000C08D0 /* MySettingsViewController.m in Sources */,
 				3A10359417466A4D008C6AB7 /* OnlineHelpViewController.m in Sources */,
+				3A1035AD17467C3B008C6AB7 /* CodeDataExample.xcdatamodeld in Sources */,
+				3A1035B017467CDB008C6AB7 /* Example.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +629,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3A1035AB17467C3B008C6AB7 /* CodeDataExample.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3A1035AC17467C3B008C6AB7 /* CodeDataExample.xcdatamodel */,
+			);
+			currentVersion = 3A1035AC17467C3B008C6AB7 /* CodeDataExample.xcdatamodel */;
+			path = CodeDataExample.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3A435D7E173E29C80085FF88 /* Project object */;
 }

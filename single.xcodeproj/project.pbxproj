@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A10359417466A4D008C6AB7 /* OnlineHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A10359317466A4D008C6AB7 /* OnlineHelpViewController.m */; };
+		3A1035A817466AF7008C6AB7 /* css.css in Resources */ = {isa = PBXBuildFile; fileRef = 3A10359F17466AF7008C6AB7 /* css.css */; };
+		3A1035A917466AF7008C6AB7 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3A1035A017466AF7008C6AB7 /* index.html */; };
 		3A340117173F977700AA668D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A340116173F977600AA668D /* Settings.bundle */; };
 		3A435D8A173E29C80085FF88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435D89173E29C80085FF88 /* UIKit.framework */; };
 		3A435D8C173E29C80085FF88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435D8B173E29C80085FF88 /* Foundation.framework */; };
@@ -41,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A10359217466A4D008C6AB7 /* OnlineHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineHelpViewController.h; sourceTree = "<group>"; };
+		3A10359317466A4D008C6AB7 /* OnlineHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineHelpViewController.m; sourceTree = "<group>"; };
+		3A10359F17466AF7008C6AB7 /* css.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = css.css; sourceTree = "<group>"; };
+		3A1035A017466AF7008C6AB7 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		3A340116173F977600AA668D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		3A435D86173E29C80085FF88 /* single.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = single.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A435D89173E29C80085FF88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -98,6 +105,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A10359117466A25008C6AB7 /* Online Help */ = {
+			isa = PBXGroup;
+			children = (
+				3A10359517466AF6008C6AB7 /* guideline */,
+				3A10359217466A4D008C6AB7 /* OnlineHelpViewController.h */,
+				3A10359317466A4D008C6AB7 /* OnlineHelpViewController.m */,
+			);
+			name = "Online Help";
+			sourceTree = "<group>";
+		};
+		3A10359517466AF6008C6AB7 /* guideline */ = {
+			isa = PBXGroup;
+			children = (
+				3A10359617466AF6008C6AB7 /* 960x1035 */,
+				3A10359E17466AF7008C6AB7 /* css */,
+				3A1035A017466AF7008C6AB7 /* index.html */,
+			);
+			path = guideline;
+			sourceTree = "<group>";
+		};
+		3A10359617466AF6008C6AB7 /* 960x1035 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = 960x1035;
+			sourceTree = "<group>";
+		};
+		3A10359E17466AF7008C6AB7 /* css */ = {
+			isa = PBXGroup;
+			children = (
+				3A10359F17466AF7008C6AB7 /* css.css */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
 		3A340110173F8E4D00AA668D /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,8 +196,9 @@
 			isa = PBXGroup;
 			children = (
 				3A340110173F8E4D00AA668D /* Home */,
-				3ABD1BDE1743E003000C08D0 /* Settings */,
 				3A340111173F8EB400AA668D /* Search */,
+				3ABD1BDE1743E003000C08D0 /* Settings */,
+				3A10359117466A25008C6AB7 /* Online Help */,
 				3A435D90173E29C80085FF88 /* Supporting Files */,
 			);
 			path = single;
@@ -288,6 +331,8 @@
 				3A435DA3173E29C90085FF88 /* MainStoryboard_iPhone.storyboard in Resources */,
 				3A435DA6173E29C90085FF88 /* MainStoryboard_iPad.storyboard in Resources */,
 				3A340117173F977700AA668D /* Settings.bundle in Resources */,
+				3A1035A817466AF7008C6AB7 /* css.css in Resources */,
+				3A1035A917466AF7008C6AB7 /* index.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +400,7 @@
 				3A72E950173E43A600E86F31 /* MySidePanelControllerViewController.m in Sources */,
 				3A72E953173E4CA300E86F31 /* MyLeftViewController.m in Sources */,
 				3ABD1BE41743E072000C08D0 /* MySettingsViewController.m in Sources */,
+				3A10359417466A4D008C6AB7 /* OnlineHelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

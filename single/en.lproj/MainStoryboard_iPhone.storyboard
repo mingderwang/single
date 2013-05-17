@@ -98,15 +98,15 @@
                                             <segue destination="h0n-M7-SFC" kind="modal" id="UrN-zn-uDJ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" textLabel="WZe-9t-OtS" style="IBUITableViewCellStyleDefault" id="aTJ-gp-Slw">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="WZe-9t-OtS" style="IBUITableViewCellStyleDefault" id="aTJ-gp-Slw">
                                         <rect key="frame" x="0.0" y="55" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Help" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WZe-9t-OtS">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Online Help" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WZe-9t-OtS">
+                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -114,6 +114,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="iC3-Lp-J9e" kind="modal" id="tXD-DK-H6E"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -127,6 +130,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AEL-Th-s7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="896" y="-614"/>
+        </scene>
+        <!--Online Help View Controller-->
+        <scene sceneID="gtR-sw-pnx">
+            <objects>
+                <viewController id="iC3-Lp-J9e" customClass="OnlineHelpViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z29-AY-bMW">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRh-2f-7yq">
+                                <items>
+                                    <navigationItem title="Setting" id="YD8-86-lZ2">
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="FgK-Ew-Zwg">
+                                            <connections>
+                                                <action selector="exit:" destination="iC3-Lp-J9e" id="DL9-QZ-6wL"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUu-VV-0Jf">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uRh-2f-7yq" firstAttribute="leading" secondItem="Z29-AY-bMW" secondAttribute="leading" type="default" id="3SQ-LM-eKh"/>
+                            <constraint firstItem="yUu-VV-0Jf" firstAttribute="trailing" secondItem="Z29-AY-bMW" secondAttribute="trailing" type="default" id="4zf-gm-Hg9"/>
+                            <constraint firstItem="yUu-VV-0Jf" firstAttribute="leading" secondItem="Z29-AY-bMW" secondAttribute="leading" type="default" id="ScT-ug-mem"/>
+                            <constraint firstItem="uRh-2f-7yq" firstAttribute="trailing" secondItem="Z29-AY-bMW" secondAttribute="trailing" type="default" id="cWg-26-npG"/>
+                            <constraint firstItem="yUu-VV-0Jf" firstAttribute="top" secondItem="uRh-2f-7yq" secondAttribute="bottom" type="default" id="gTp-kb-QRa"/>
+                            <constraint firstItem="yUu-VV-0Jf" firstAttribute="bottom" secondItem="Z29-AY-bMW" secondAttribute="bottom" type="default" id="oPq-sU-uIW"/>
+                            <constraint firstItem="uRh-2f-7yq" firstAttribute="top" secondItem="Z29-AY-bMW" secondAttribute="top" type="default" id="tNH-5e-9vV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="nro-6y-4Ml"/>
+                    <connections>
+                        <outlet property="webView" destination="yUu-VV-0Jf" id="OTW-cM-FIB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aie-al-BVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1401" y="-407"/>
         </scene>
         <!--My Settings View Controller-->
         <scene sceneID="8vb-DJ-viv">
@@ -168,7 +214,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B04-hX-TaE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1286" y="-614"/>
+            <point key="canvasLocation" x="1401" y="-1193"/>
         </scene>
         <!--My Side Panel Controller View Controller-->
         <scene sceneID="5">
@@ -243,6 +289,16 @@
         </class>
         <class className="MySidePanelControllerViewController" superclassName="JASidePanelController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MySidePanelControllerViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="OnlineHelpViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OnlineHelpViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="exit:"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -182,7 +182,6 @@
 		3A435D7D173E29C80085FF88 = {
 			isa = PBXGroup;
 			children = (
-				3A1035B117468113008C6AB7 /* CoreData.framework */,
 				3A435D8F173E29C80085FF88 /* single */,
 				3A435DB6173E29C90085FF88 /* singleTests */,
 				3A435D88173E29C80085FF88 /* Frameworks */,
@@ -203,6 +202,7 @@
 		3A435D88173E29C80085FF88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A1035B117468113008C6AB7 /* CoreData.framework */,
 				3A435D89173E29C80085FF88 /* UIKit.framework */,
 				3A435D8B173E29C80085FF88 /* Foundation.framework */,
 				3A435D8D173E29C80085FF88 /* CoreGraphics.framework */,

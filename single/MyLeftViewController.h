@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyLeftViewController : UIViewController {
+@interface MyLeftViewController : UITableViewController {
     IBOutlet UIButton *buttonToCenter;
+	NSMutableArray *itemArray;
 }
+@property (nonatomic, retain) NSMutableArray *itemArray;
+
 - (IBAction)showCenter:(id)sender;
 
 @end

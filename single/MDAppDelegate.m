@@ -28,7 +28,9 @@
 	NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
 	
 	self.itemArray = [[NSMutableArray alloc] initWithArray:results];
-    [self initData];
+    if ([self.itemArray count] == 0) {
+        [self initMockData];
+    }
     return YES;
 }
 							
@@ -180,9 +182,6 @@
 		[myTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 		[myTableView endUpdates];
 		
-		if([self.itemArray count] == 0)
-			[tableView reloadData];
-		
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -191,7 +190,7 @@
 
 #pragma mark - core data internal function
 
-- (void)saveContext {
+- (void) saveContext {
     NSError *error = nil;
     if(self.managedObjectContext != nil) {
         if ([self.managedObjectContext hasChanges] && ![self.managedObjectContext save:&error]) {
@@ -201,9 +200,7 @@
     }
 }
 
-#pragma mark - init fake data
-
-- (void) initData {
+- (void) initMockData {
     for (int i= 0; i < 10; i++) {
         [self.itemArray addObject:[self getItem:i]];
     }

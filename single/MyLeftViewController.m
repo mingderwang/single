@@ -7,15 +7,13 @@
 //
 
 #import "MyLeftViewController.h"
+#import "MDAppDelegate.h"
 
 #import "JASidePanelController.h"
 #import "UIViewController+JASidePanel.h"
 
-@interface MyLeftViewController ()
-
-@end
-
 @implementation MyLeftViewController
+@synthesize itemArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initListItems];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,4 +43,34 @@
     
 }
 
+#pragma mark - list of items
+
+- (void) initListItems {
+    MDAppDelegate *app = (MDAppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.itemArray = [NSArray arrayWithArray:app.itemArray];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.itemArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *CellIdentifier = @"MyExampleTableCell";
+    
+    UITableViewCell *cell = [self.tableView
+                            dequeueReusableCellWithIdentifier:CellIdentifier];
+    cell.accessoryType=UITableViewCellAccessoryNone;
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]
+                initWithStyle:UITableViewCellStyleSubtitle
+                reuseIdentifier:CellIdentifier];
+    }
+    
+    // Set up the cell...
+    Example *cellValue = [itemArray objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text = cellValue.item;
+    
+    return cell;
+}
 @end

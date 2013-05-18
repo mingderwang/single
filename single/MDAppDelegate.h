@@ -15,7 +15,6 @@
     NSManagedObjectContext *managedObjectContext;
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
     
-    UITableView *tableView;
 	NSMutableArray *itemArray;
 }
 @property (nonatomic, retain) NSMutableArray *itemArray;

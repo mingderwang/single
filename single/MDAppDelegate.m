@@ -170,11 +170,9 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source.
         
-		NSError *error;
-		
 		Example *ex = [self.itemArray objectAtIndex:[indexPath indexAtPosition:1]];
 		[self.managedObjectContext deleteObject:ex];
-		[self.managedObjectContext save:&error];
+        [self saveContext];
         
 		[self.itemArray removeObjectAtIndex:[indexPath indexAtPosition:1]];
         
@@ -191,19 +189,25 @@
     }   
 }
 
+#pragma mark - core data internal function
+
+- (void)saveContext {
+    NSError *error = nil;
+    if(self.managedObjectContext != nil) {
+        if ([self.managedObjectContext hasChanges] && ![self.managedObjectContext save:&error]) {
+            // Code to handle the error
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        }
+    }
+}
+
 #pragma mark - init fake data
 
 - (void) initData {
     for (int i= 0; i < 10; i++) {
         [self.itemArray addObject:[self getItem:i]];
     }
-    
-	NSError *error;
-	if (![self.managedObjectContext save:&error])
-	{
-		NSLog(@"Core Data error: %@, %@", error, [error userInfo]);
-		exit(-1);
-	}
+    [self saveContext];
 }
 
 - (Example *) getItem: (int) i {

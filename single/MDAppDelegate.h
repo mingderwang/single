@@ -15,9 +15,9 @@
     NSManagedObjectContext *managedObjectContext;
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
     
-	NSMutableArray *itemArray;
+	NSMutableArray *itemsArray;
 }
-@property (nonatomic, retain) NSMutableArray *itemArray;
+@property (nonatomic, retain) NSMutableArray *itemsArray;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

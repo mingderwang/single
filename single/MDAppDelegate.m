@@ -7,6 +7,13 @@
 //
 
 #import "MDAppDelegate.h"
+#import <PXAPI/PXAPI.h>
+
+#define kUserNameForAuthentication  @"mingderwang"
+#define kPasswordForAuthentication  @"didipan500"
+
+#define kPXAPIConsumerKey       @"7UTN19sJ3k1XVrPTiTXaXTJJKH6qyshb3TyRhDu2"
+#define kPXAPIConsumerSecret    @"wZHbWGA0R5MFkAGlc3eMfLeH8Jx7iuEuKzxZcECu"
 
 @interface MDAppDelegate (PrivateCoreDataStack)
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
@@ -15,7 +22,7 @@
 @end
 
 @implementation MDAppDelegate
-@synthesize itemArray;
+@synthesize itemsArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -26,11 +33,34 @@
 	
 	NSError *error;
 	NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-	
-	self.itemArray = [[NSMutableArray alloc] initWithArray:results];
-    if ([self.itemArray count] == 0) {
-        [self initMockData];
+    
+    // 500px data
+    self.itemsArray = [NSMutableArray new];
+    [PXRequest setConsumerKey:kPXAPIConsumerKey consumerSecret:kPXAPIConsumerSecret];
+    
+    PXAPIHelper *helper = [[PXAPIHelper alloc] initWithHost:nil
+                                                consumerKey:kPXAPIConsumerKey
+                                             consumerSecret:kPXAPIConsumerSecret];
+    
+    NSDictionary *dictionary = [self jsonDictionaryForRequest:[helper urlRequestForSearchTerm:@"taipei"] expectingResponseCode:200];
+    
+#ifdef DEBUG
+    //    NSLog(@"%s|%@",__PRETTY_FUNCTION__,[dictionary objectForKey:@"photos"]);
+#endif
+    NSArray *items = [dictionary objectForKey:@"photos"];
+    self.itemsArray = [NSMutableArray new];
+    for (NSDictionary *item in items) {
+        
+#ifdef DEBUG
+        //    NSLog(@"%s|%@",__PRETTY_FUNCTION__,[item objectForKey:@"image_url"][0]);
+#endif
+        [self.itemsArray addObject:[item objectForKey:@"image_url"][0]];
     }
+	
+//	self.itemsArray = [[NSMutableArray alloc] initWithArray:results];
+//    if ([self.itemsArray count] == 0) {
+//        [self initMockData];
+//    }
     return YES;
 }
 							
@@ -147,7 +177,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return [self.itemArray count];
+	return [self.itemsArray count];
 }
 
 // Customize the appearance of table view cells.
@@ -160,7 +190,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-	Example *ex = [self.itemArray objectAtIndex:[indexPath indexAtPosition:1]];
+	Example *ex = [self.itemsArray objectAtIndex:[indexPath indexAtPosition:1]];
 	NSString *exampleResult = [[NSString alloc] initWithFormat:@"%@ / %@", ex.item, ex.digits];
 	cell.textLabel.text = exampleResult;
 	
@@ -172,11 +202,11 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source.
         
-		Example *ex = [self.itemArray objectAtIndex:[indexPath indexAtPosition:1]];
+		Example *ex = [self.itemsArray objectAtIndex:[indexPath indexAtPosition:1]];
 		[self.managedObjectContext deleteObject:ex];
         [self saveContext];
         
-		[self.itemArray removeObjectAtIndex:[indexPath indexAtPosition:1]];
+		[self.itemsArray removeObjectAtIndex:[indexPath indexAtPosition:1]];
         
 		[myTableView beginUpdates];
 		[myTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -202,7 +232,7 @@
 
 - (void) initMockData {
     for (int i= 0; i < 10; i++) {
-        [self.itemArray addObject:[self getItem:i]];
+        [self.itemsArray addObject:[self getItem:i]];
     }
     [self saveContext];
 }
@@ -215,6 +245,31 @@
 	ex.digits = digits;
 	ex.item = [NSString stringWithFormat:@"item %d",i];
     return ex;
+}
+
+// for 500px
+-(NSDictionary *)jsonDictionaryForRequest:(NSURLRequest *)urlRequest expectingResponseCode:(NSInteger)httpResponseCode
+{
+    NSHTTPURLResponse *returnResponse;
+    NSError *connectionError;
+    NSData *returnedData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&returnResponse error:&connectionError];
+    
+    if (connectionError)
+    {
+        NSLog(@"Connection returned error: %@", connectionError);
+        return nil;
+    }
+    
+    if (returnResponse.statusCode != httpResponseCode)
+    {
+        NSLog(@"Connection returned response code %d but we were expecting %d", returnResponse.statusCode, httpResponseCode);
+        return nil;
+    }
+    
+    NSError *jsonParseError;
+    NSDictionary *returnedDictionary = [NSJSONSerialization JSONObjectWithData:returnedData options:0 error:&jsonParseError];
+    
+    return returnedDictionary;
 }
 
 @end

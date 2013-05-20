@@ -14,6 +14,9 @@
 		3A1035B017467CDB008C6AB7 /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1035AF17467CDB008C6AB7 /* Example.m */; };
 		3A1035B217468114008C6AB7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1035B117468113008C6AB7 /* CoreData.framework */; };
 		3A340117173F977700AA668D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A340116173F977600AA668D /* Settings.bundle */; };
+		3A42919D174A52930055523D /* libPXAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A42919A174A526F0055523D /* libPXAPI.a */; };
+		3A42919F174A67420055523D /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A42919E174A67420055523D /* Placeholder.png */; };
+		3A4291A3174A68D20055523D /* MDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4291A2174A68D20055523D /* MDCell.m */; };
 		3A435D8A173E29C80085FF88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435D89173E29C80085FF88 /* UIKit.framework */; };
 		3A435D8C173E29C80085FF88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435D8B173E29C80085FF88 /* Foundation.framework */; };
 		3A435D8E173E29C80085FF88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A435D8D173E29C80085FF88 /* CoreGraphics.framework */; };
@@ -37,6 +40,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3A429199174A526F0055523D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A429194174A526F0055523D /* PXAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5EB9AFC415C34F3F002E7F6D;
+			remoteInfo = PXAPI;
+		};
+		3A42919B174A526F0055523D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A429194174A526F0055523D /* PXAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5EB9AFD515C34F3F002E7F6D;
+			remoteInfo = tests;
+		};
 		3A435DB4173E29C90085FF88 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3A435D7E173E29C80085FF88 /* Project object */;
@@ -56,6 +73,10 @@
 		3A1035AF17467CDB008C6AB7 /* Example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example.m; sourceTree = "<group>"; };
 		3A1035B117468113008C6AB7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3A340116173F977600AA668D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		3A429194174A526F0055523D /* PXAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PXAPI.xcodeproj; path = "500px-iOS-api/PXAPI.xcodeproj"; sourceTree = "<group>"; };
+		3A42919E174A67420055523D /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
+		3A4291A1174A68D20055523D /* MDCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCell.h; sourceTree = "<group>"; };
+		3A4291A2174A68D20055523D /* MDCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCell.m; sourceTree = "<group>"; };
 		3A435D86173E29C80085FF88 /* single.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = single.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A435D89173E29C80085FF88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3A435D8B173E29C80085FF88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -92,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A42919D174A52930055523D /* libPXAPI.a in Frameworks */,
 				3A1035B217468114008C6AB7 /* CoreData.framework in Frameworks */,
 				3A435D8A173E29C80085FF88 /* UIKit.framework in Frameworks */,
 				3A435D8C173E29C80085FF88 /* Foundation.framework in Frameworks */,
@@ -172,11 +194,30 @@
 		3A340111173F8EB400AA668D /* SearchList */ = {
 			isa = PBXGroup;
 			children = (
+				3A4291A0174A689E0055523D /* Models */,
 				3A1035AA17467C17008C6AB7 /* CoreData */,
 				3A72E951173E4CA200E86F31 /* MyLeftViewController.h */,
 				3A72E952173E4CA200E86F31 /* MyLeftViewController.m */,
 			);
 			name = SearchList;
+			sourceTree = "<group>";
+		};
+		3A429195174A526F0055523D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A42919A174A526F0055523D /* libPXAPI.a */,
+				3A42919C174A526F0055523D /* tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A4291A0174A689E0055523D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3A4291A1174A68D20055523D /* MDCell.h */,
+				3A4291A2174A68D20055523D /* MDCell.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		3A435D7D173E29C80085FF88 = {
@@ -202,6 +243,7 @@
 		3A435D88173E29C80085FF88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A429194174A526F0055523D /* PXAPI.xcodeproj */,
 				3A1035B117468113008C6AB7 /* CoreData.framework */,
 				3A435D89173E29C80085FF88 /* UIKit.framework */,
 				3A435D8B173E29C80085FF88 /* Foundation.framework */,
@@ -227,6 +269,7 @@
 		3A435D90173E29C80085FF88 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A42919E174A67420055523D /* Placeholder.png */,
 				3A340116173F977600AA668D /* Settings.bundle */,
 				3A435DA1173E29C90085FF88 /* MainStoryboard_iPhone.storyboard */,
 				3A435DA4173E29C90085FF88 /* MainStoryboard_iPad.storyboard */,
@@ -331,6 +374,12 @@
 			mainGroup = 3A435D7D173E29C80085FF88;
 			productRefGroup = 3A435D87173E29C80085FF88 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3A429195174A526F0055523D /* Products */;
+					ProjectRef = 3A429194174A526F0055523D /* PXAPI.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3A435D85173E29C80085FF88 /* single */,
@@ -338,6 +387,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3A42919A174A526F0055523D /* libPXAPI.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPXAPI.a;
+			remoteRef = 3A429199174A526F0055523D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3A42919C174A526F0055523D /* tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = tests.octest;
+			remoteRef = 3A42919B174A526F0055523D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3A435D84173E29C80085FF88 /* Resources */ = {
@@ -353,6 +419,7 @@
 				3A340117173F977700AA668D /* Settings.bundle in Resources */,
 				3A1035A817466AF7008C6AB7 /* css.css in Resources */,
 				3A1035A917466AF7008C6AB7 /* index.html in Resources */,
+				3A42919F174A67420055523D /* Placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +490,7 @@
 				3A10359417466A4D008C6AB7 /* OnlineHelpViewController.m in Sources */,
 				3A1035AD17467C3B008C6AB7 /* CodeDataExample.xcdatamodeld in Sources */,
 				3A1035B017467CDB008C6AB7 /* Example.m in Sources */,
+				3A4291A3174A68D20055523D /* MDCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +612,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "single/single-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = "single/single-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -557,6 +626,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "single/single-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = "single/single-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";

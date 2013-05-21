@@ -10,7 +10,6 @@
 
 @interface MyLeftViewController : UITableViewController {
     IBOutlet UIButton *buttonToCenter;
-	NSMutableArray *itemArray;
 }
 @property (nonatomic, retain) NSMutableArray *itemArray;
 

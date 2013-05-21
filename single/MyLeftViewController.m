@@ -9,13 +9,12 @@
 #import "MyLeftViewController.h"
 #import "MDAppDelegate.h"
 #import "MDCell.h"
-#import "UIImageView+AFNetworking.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #import "JASidePanelController.h"
 #import "UIViewController+JASidePanel.h"
 
 @implementation MyLeftViewController
-@synthesize itemArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -68,42 +67,14 @@
                 initWithStyle:UITableViewCellStyleSubtitle
                 reuseIdentifier:CellIdentifier];
     }
-    
-    NSLog(@"%d", indexPath.row);
-    // Set up the cell...
-//    Example *cellValue = [itemArray objectAtIndex:indexPath.row];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:[_itemArray objectAtIndex:indexPath.row]]
+                   placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
 
-//    cell.detailTextLabel.text = [itemArray objectAtIndex:indexPath.row];
-    NSURL *url = [NSURL URLWithString:[itemArray objectAtIndex:indexPath.row]];
-    [cell.imageView setImageWithURLRequest:[NSURLRequest requestWithURL:url]
-                       placeholderImage:[UIImage imageNamed:@"Placeholder.png"]
-                                success:^(NSURLRequest *request , NSHTTPURLResponse *response , UIImage *image ){
-                                    
-                                    if (request) {
-                                        //Fade animation
-                                        [UIView transitionWithView:cell.imageView
-                                                          duration:0.8f
-                                                           options:UIViewAnimationOptionTransitionCrossDissolve
-                                                        animations:^{
-                                                            [cell.imageView setImage:image];
-                                                            
-                                                            
-                                                            
-                                                        } completion:NULL];
-                                        
-                                    }
-                                    
-                                    
-                                }
-                                failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
-                                    
-                                }
-     ];
     return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
-//{
-//    return 320;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    return 320;
+}
 @end

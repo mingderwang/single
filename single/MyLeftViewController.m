@@ -68,7 +68,10 @@
                 reuseIdentifier:CellIdentifier];
     }
     [cell.imageView setImageWithURL:[NSURL URLWithString:[_itemArray objectAtIndex:indexPath.row]]
-                   placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+                   placeholderImage:[UIImage imageNamed:@"placeholder.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType)
+     {
+       
+     }];
 
     return cell;
 }

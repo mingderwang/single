@@ -52,7 +52,7 @@
     for (NSDictionary *item in items) {
         
 #ifdef DEBUG
-        //    NSLog(@"%s|%@",__PRETTY_FUNCTION__,[item objectForKey:@"image_url"][0]);
+//        NSLog(@"%s|%@",__PRETTY_FUNCTION__,[item objectForKey:@"image_url"][0]);
 #endif
         [self.itemsArray addObject:[item objectForKey:@"image_url"][0]];
     }
@@ -166,56 +166,6 @@
  */
 - (NSString *)applicationDocumentsDirectory {
 	return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-}
-
-
-#pragma mark - tableView Methods
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-	return 1;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-	return [self.itemsArray count];
-}
-
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)myTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [myTableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-	Example *ex = [self.itemsArray objectAtIndex:[indexPath indexAtPosition:1]];
-	NSString *exampleResult = [[NSString alloc] initWithFormat:@"%@ / %@", ex.item, ex.digits];
-	cell.textLabel.text = exampleResult;
-	
-    return cell;
-}
-
-- (void)tableView:(UITableView *)myTableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source.
-        
-		Example *ex = [self.itemsArray objectAtIndex:[indexPath indexAtPosition:1]];
-		[self.managedObjectContext deleteObject:ex];
-        [self saveContext];
-        
-		[self.itemsArray removeObjectAtIndex:[indexPath indexAtPosition:1]];
-        
-		[myTableView beginUpdates];
-		[myTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-		[myTableView endUpdates];
-		
-    }
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
 }
 
 #pragma mark - core data internal function

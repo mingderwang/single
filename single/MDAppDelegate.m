@@ -41,8 +41,10 @@
     PXAPIHelper *helper = [[PXAPIHelper alloc] initWithHost:nil
                                                 consumerKey:kPXAPIConsumerKey
                                              consumerSecret:kPXAPIConsumerSecret];
-    
-    NSDictionary *dictionary = [self jsonDictionaryForRequest:[helper urlRequestForSearchTerm:@"taipei"] expectingResponseCode:200];
+    NSUserDefaults *userInfo = [NSUserDefaults standardUserDefaults];
+    NSDictionary* dict = [userInfo dictionaryRepresentation];
+    NSString *searchKey = [dict objectForKey:@"search_key.single.katdc.com"];
+    NSDictionary *dictionary = [self jsonDictionaryForRequest:[helper urlRequestForSearchTerm:searchKey] expectingResponseCode:200];
     
 #ifdef DEBUG
     //    NSLog(@"%s|%@",__PRETTY_FUNCTION__,[dictionary objectForKey:@"photos"]);

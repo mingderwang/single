@@ -8,6 +8,9 @@
 
 #import "IASKAppSettingsViewController.h"
 
-@interface MySettingsViewController : IASKAppSettingsViewController
+@interface MySettingsViewController : IASKAppSettingsViewController {
+    BOOL hasChanged;
+}
+- (void)settingDidChange:(NSNotification*)notification;
 - (IBAction)exit:(id) sender;
 @end

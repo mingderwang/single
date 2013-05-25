@@ -29,6 +29,17 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    hasChanged = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(settingDidChange:) name:kIASKAppSettingChanged object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,39 +48,31 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)exit:(id) sender {
-    [self syncDB];
-    MDAppDelegate *app = (MDAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [app update500pxItems];
+- (IBAction)exit:(id) sender{
+    if (hasChanged) {
+        [self synchronizeSettings];
+        [self performSelectorOnMainThread:@selector(updateAppItemsData) withObject:nil waitUntilDone:NO];
+        hasChanged = NO;
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - init settings database
-
-- (void) syncDB {
-    NSDictionary* settingsDictionary = [self.settingsReader settingsDictionary];
-    NSArray *preferencesArray = [settingsDictionary objectForKey:@"PreferenceSpecifiers"];
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    
-    //for each preference item, set its default if there is no value set
-    for(NSDictionary *item in preferencesArray) {
-        
-        //get the item key, if there is no key then we can skip it
-        NSString *key = [item objectForKey:@"Key"];
-        if (key) {
-            
-            //check to see if the value and default value are set
-            //if a default value exists and the value is not set, use the default
-            id value = [defaults objectForKey:key];
-            id defaultValue = [item objectForKey:@"DefaultValue"];
-            if(defaultValue && !value) {
-                [defaults setObject:defaultValue forKey:key];
-            }
-        }
-    }
-    
-    //write the changes to disk
-    [defaults synchronize];
+- (void) updateAppItemsData {
+    MDAppDelegate *app = (MDAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [app update500pxItems];
 }
+
+#pragma mark kIASKAppSettingChanged notification
+
+- (void)settingDidChange:(NSNotification*)notification {
+//    NSLog(@"%@", notification.object);
+	if ([notification.object isEqual:@"search_key.single.katdc.com"]) {
+#ifdef DEBUG
+        NSLog(@"%s|%@",__PRETTY_FUNCTION__,[notification.userInfo objectForKey:notification.object]);
+#endif
+        hasChanged = YES;
+	}
+}
+
 
 @end

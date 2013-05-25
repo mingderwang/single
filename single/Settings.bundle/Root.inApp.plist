@@ -10,17 +10,19 @@
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>Search Key</string>
+			<string>Cusomization</string>
 		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>Current</string>
+			<string>Search key:</string>
 			<key>Key</key>
 			<string>search_key.single.katdc.com</string>
 			<key>DefaultValue</key>
 			<string>taipei</string>
+			<key>IASKTextAlignment</key>
+			<string>IASKUITextAlignmentLeft</string>
 		</dict>
 		<dict>
 			<key>Type</key>

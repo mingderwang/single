@@ -87,4 +87,30 @@
 {
     return 320;
 }
+
+#pragma mark - search handler
+
+- (void)handleSearch:(UISearchBar *)searchBar {
+
+    NSString *searchString = [searchBar text];
+    if ([searchString isEqualToString:searchText]) {
+        return;
+    }
+    MDAppDelegate *app = (MDAppDelegate *)[[UIApplication sharedApplication] delegate];
+    app.searchText = searchString;
+    searchText = nil;
+    [app update500pxItems];
+    [self initListItems];
+    [self performSelectorOnMainThread:@selector(uloadTableView) withObject:nil waitUntilDone:NO];
+}
+
+- (void) uloadTableView {
+    [self.tableView reloadData];
+}
+
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *) searchBar
+{
+    [self performSelectorInBackground:@selector(handleSearch:) withObject:searchBar];
+}
 @end

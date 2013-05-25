@@ -13,7 +13,6 @@
 		3A1035AD17467C3B008C6AB7 /* CodeDataExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A1035AB17467C3B008C6AB7 /* CodeDataExample.xcdatamodeld */; };
 		3A1035B017467CDB008C6AB7 /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1035AF17467CDB008C6AB7 /* Example.m */; };
 		3A1035B217468114008C6AB7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1035B117468113008C6AB7 /* CoreData.framework */; };
-		3A340117173F977700AA668D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A340116173F977600AA668D /* Settings.bundle */; };
 		3A42919D174A52930055523D /* libPXAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A42919A174A526F0055523D /* libPXAPI.a */; };
 		3A42919F174A67420055523D /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A42919E174A67420055523D /* Placeholder.png */; };
 		3A4291A3174A68D20055523D /* MDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4291A2174A68D20055523D /* MDCell.m */; };
@@ -35,6 +34,7 @@
 		3A435DBE173E29C90085FF88 /* singleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A435DBD173E29C90085FF88 /* singleTests.m */; };
 		3A72E950173E43A600E86F31 /* MySidePanelControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A72E94F173E43A600E86F31 /* MySidePanelControllerViewController.m */; };
 		3A72E953173E4CA300E86F31 /* MyLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A72E952173E4CA200E86F31 /* MyLeftViewController.m */; };
+		3A775BDB17511EB900B08D1F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A775BDA17511EB900B08D1F /* Settings.bundle */; };
 		3ABD1BE41743E072000C08D0 /* MySettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD1BE31743E071000C08D0 /* MySettingsViewController.m */; };
 		D603BB52B3794E95850C315D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 613EBCF0AC1F471AA8E1599C /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -72,7 +72,6 @@
 		3A1035AE17467CDB008C6AB7 /* Example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example.h; sourceTree = "<group>"; };
 		3A1035AF17467CDB008C6AB7 /* Example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example.m; sourceTree = "<group>"; };
 		3A1035B117468113008C6AB7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		3A340116173F977600AA668D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		3A429194174A526F0055523D /* PXAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PXAPI.xcodeproj; path = "500px-iOS-api/PXAPI.xcodeproj"; sourceTree = "<group>"; };
 		3A42919E174A67420055523D /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
 		3A4291A1174A68D20055523D /* MDCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCell.h; sourceTree = "<group>"; };
@@ -102,6 +101,7 @@
 		3A72E94F173E43A600E86F31 /* MySidePanelControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySidePanelControllerViewController.m; sourceTree = "<group>"; };
 		3A72E951173E4CA200E86F31 /* MyLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLeftViewController.h; sourceTree = "<group>"; };
 		3A72E952173E4CA200E86F31 /* MyLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLeftViewController.m; sourceTree = "<group>"; };
+		3A775BDA17511EB900B08D1F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		3ABD1BE21743E071000C08D0 /* MySettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySettingsViewController.h; path = single/MySettingsViewController.h; sourceTree = "<group>"; };
 		3ABD1BE31743E071000C08D0 /* MySettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySettingsViewController.m; path = single/MySettingsViewController.m; sourceTree = "<group>"; };
 		613EBCF0AC1F471AA8E1599C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,8 +269,8 @@
 		3A435D90173E29C80085FF88 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A775BDA17511EB900B08D1F /* Settings.bundle */,
 				3A42919E174A67420055523D /* Placeholder.png */,
-				3A340116173F977600AA668D /* Settings.bundle */,
 				3A435DA1173E29C90085FF88 /* MainStoryboard_iPhone.storyboard */,
 				3A435DA4173E29C90085FF88 /* MainStoryboard_iPad.storyboard */,
 				3A435D91173E29C80085FF88 /* single-Info.plist */,
@@ -416,10 +416,10 @@
 				3A435DA0173E29C80085FF88 /* Default-568h@2x.png in Resources */,
 				3A435DA3173E29C90085FF88 /* MainStoryboard_iPhone.storyboard in Resources */,
 				3A435DA6173E29C90085FF88 /* MainStoryboard_iPad.storyboard in Resources */,
-				3A340117173F977700AA668D /* Settings.bundle in Resources */,
 				3A1035A817466AF7008C6AB7 /* css.css in Resources */,
 				3A1035A917466AF7008C6AB7 /* index.html in Resources */,
 				3A42919F174A67420055523D /* Placeholder.png in Resources */,
+				3A775BDB17511EB900B08D1F /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

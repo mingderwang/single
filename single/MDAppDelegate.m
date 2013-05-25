@@ -244,6 +244,9 @@
     NSDictionary* dict = [userInfo dictionaryRepresentation];
     
     NSString *searchKey = [dict objectForKey:@"search_key.single.katdc.com"];
+    if (nil == searchKey) {
+        searchKey = @"Taipei";
+    }
     searchText = searchKey;
     NSDictionary *dictionary = [self jsonDictionaryForRequest:[helper urlRequestForSearchTerm:searchKey] expectingResponseCode:200];
     

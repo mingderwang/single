@@ -8,6 +8,7 @@
 
 #import "MDAppDelegate.h"
 #import <PXAPI/PXAPI.h>
+#import "IASKSettingsReader.h"
 
 #define kUserNameForAuthentication  @"mingderwang"
 #define kPasswordForAuthentication  @"didipan500"
@@ -31,38 +32,17 @@
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Example" inManagedObjectContext:self.managedObjectContext];
 	[fetchRequest setEntity:entity];
 	
-	NSError *error;
-	NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    
-    // 500px data
-    self.itemsArray = [NSMutableArray new];
-    [PXRequest setConsumerKey:kPXAPIConsumerKey consumerSecret:kPXAPIConsumerSecret];
-    
-    PXAPIHelper *helper = [[PXAPIHelper alloc] initWithHost:nil
-                                                consumerKey:kPXAPIConsumerKey
-                                             consumerSecret:kPXAPIConsumerSecret];
-    NSUserDefaults *userInfo = [NSUserDefaults standardUserDefaults];
-    NSDictionary* dict = [userInfo dictionaryRepresentation];
-    NSString *searchKey = [dict objectForKey:@"search_key.single.katdc.com"];
-    NSDictionary *dictionary = [self jsonDictionaryForRequest:[helper urlRequestForSearchTerm:searchKey] expectingResponseCode:200];
-    
-#ifdef DEBUG
-    //    NSLog(@"%s|%@",__PRETTY_FUNCTION__,[dictionary objectForKey:@"photos"]);
-#endif
-    NSArray *items = [dictionary objectForKey:@"photos"];
-    self.itemsArray = [NSMutableArray new];
-    for (NSDictionary *item in items) {
-        
-#ifdef DEBUG
-//        NSLog(@"%s|%@",__PRETTY_FUNCTION__,[item objectForKey:@"image_url"][0]);
-#endif
-        [self.itemsArray addObject:[item objectForKey:@"image_url"][0]];
-    }
-	
-//	self.itemsArray = [[NSMutableArray alloc] initWithArray:results];
+// for Fetch DB: Example
+//	NSError *error;
+//	NSArr//	self.itemsArray = [[NSMutableArray alloc] initWithArray:results];
 //    if ([self.itemsArray count] == 0) {
 //        [self initMockData];
-//    }
+//    }ay *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    self.itemsArray = [NSMutableArray new];
+    [self initSettingsDB];
+    // 500px data
+    [self update500pxItems];
     return YES;
 }
 							
@@ -222,6 +202,63 @@
     NSDictionary *returnedDictionary = [NSJSONSerialization JSONObjectWithData:returnedData options:0 error:&jsonParseError];
     
     return returnedDictionary;
+}
+
+// for Settings
+
+- (void) initSettingsDB {
+    IASKSettingsReader *settingsReader = [IASKSettingsReader new];
+    NSDictionary* settingsDictionary = [settingsReader settingsDictionary];
+    NSArray *preferencesArray = [settingsDictionary objectForKey:@"PreferenceSpecifiers"];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    
+    //for each preference item, set its default if there is no value set
+    for(NSDictionary *item in preferencesArray) {
+        
+        //get the item key, if there is no key then we can skip it
+        NSString *key = [item objectForKey:@"Key"];
+        if (key) {
+            
+            //check to see if the value and default value are set
+            //if a default value exists and the value is not set, use the default
+            id value = [defaults objectForKey:key];
+            id defaultValue = [item objectForKey:@"DefaultValue"];
+            if(defaultValue && !value) {
+                [defaults setObject:defaultValue forKey:key];
+            }
+        }
+    }
+    
+    //write the changes to disk
+    [defaults synchronize];
+}
+
+- (void) update500pxItems {
+    
+    [PXRequest setConsumerKey:kPXAPIConsumerKey consumerSecret:kPXAPIConsumerSecret];
+    
+    PXAPIHelper *helper = [[PXAPIHelper alloc] initWithHost:nil
+                                                consumerKey:kPXAPIConsumerKey
+                                             consumerSecret:kPXAPIConsumerSecret];
+    NSUserDefaults *userInfo = [NSUserDefaults standardUserDefaults];
+    NSDictionary* dict = [userInfo dictionaryRepresentation];
+    
+    NSString *searchKey = [dict objectForKey:@"search_key.single.katdc.com"];
+    searchText = searchKey;
+    NSDictionary *dictionary = [self jsonDictionaryForRequest:[helper urlRequestForSearchTerm:searchKey] expectingResponseCode:200];
+    
+#ifdef DEBUG
+    //    NSLog(@"%s|%@",__PRETTY_FUNCTION__,[dictionary objectForKey:@"photos"]);
+#endif
+    NSArray *items = [dictionary objectForKey:@"photos"];
+    self.itemsArray = [NSMutableArray new];
+    for (NSDictionary *item in items) {
+        
+#ifdef DEBUG
+        //        NSLog(@"%s|%@",__PRETTY_FUNCTION__,[item objectForKey:@"image_url"][0]);
+#endif
+        [self.itemsArray addObject:[item objectForKey:@"image_url"][0]];
+    }
 }
 
 @end

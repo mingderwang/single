@@ -27,7 +27,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     [self initListItems];
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,8 +51,11 @@
 #pragma mark - list of items
 
 - (void) initListItems {
-    MDAppDelegate *app = (MDAppDelegate *)[[UIApplication sharedApplication] delegate];
-    self.itemArray = [NSArray arrayWithArray:app.itemsArray];
+        MDAppDelegate *app = (MDAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (nil == searchText || [searchText isEqualToString:app.searchText]) {
+        searchText = app.searchText;
+        self.itemArray = [NSArray arrayWithArray:app.itemsArray];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -14,10 +14,12 @@
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
-    
+    NSString *searchText;
 	NSMutableArray *itemsArray;
 }
 @property (nonatomic, retain) NSMutableArray *itemsArray;
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) NSString *searchText;
 
+- (void) update500pxItems;
 @end

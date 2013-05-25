@@ -8,6 +8,7 @@
 
 #import "MySettingsViewController.h"
 #import "IASKSettingsReader.h"
+#import "MDAppDelegate.h"
 
 @interface MySettingsViewController ()
 
@@ -28,6 +29,24 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)exit:(id) sender {
+    [self syncDB];
+    MDAppDelegate *app = (MDAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [app update500pxItems];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - init settings database
+
+- (void) syncDB {
     NSDictionary* settingsDictionary = [self.settingsReader settingsDictionary];
     NSArray *preferencesArray = [settingsDictionary objectForKey:@"PreferenceSpecifiers"];
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -51,19 +70,6 @@
     
     //write the changes to disk
     [defaults synchronize];
-    NSUserDefaults *userInfo = [NSUserDefaults standardUserDefaults];
-    NSDictionary* dict = [userInfo dictionaryRepresentation];
-    NSString *searchKey = [dict objectForKey:@"search_key.single.katdc.com"];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)exit:(id) sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

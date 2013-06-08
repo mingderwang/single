@@ -111,6 +111,8 @@
 			<string>TEXT_FIELD_SIG</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
+			<key>DefaultValue</key>
+			<string>dog</string>
 		</dict>
 		<dict>
 			<key>FooterText</key>

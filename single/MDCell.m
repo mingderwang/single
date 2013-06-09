@@ -37,7 +37,7 @@
     _cell = cell2;
     
     [self.imageView setImageWithURL:[NSURL URLWithString:_cell.item]
-                   placeholderImage:[UIImage imageNamed:@"profile-image-placeholder.png"]];
+                   placeholderImage:[UIImage imageNamed:@"profile-image-placeholder.jpeg"]];
     [self setNeedsLayout];
 }
 

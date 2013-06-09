@@ -35,8 +35,8 @@
 		3A72E953173E4CA300E86F31 /* MyLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A72E952173E4CA200E86F31 /* MyLeftViewController.m */; };
 		3A775BDB17511EB900B08D1F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A775BDA17511EB900B08D1F /* Settings.bundle */; };
 		3ABD1BE41743E072000C08D0 /* MySettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD1BE31743E071000C08D0 /* MySettingsViewController.m */; };
-		3AFCCD9E1764D39B008D6E40 /* profile-image-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFCCD9C1764D39A008D6E40 /* profile-image-placeholder.png */; };
-		3AFCCD9F1764D39B008D6E40 /* profile-image-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFCCD9D1764D39B008D6E40 /* profile-image-placeholder@2x.png */; };
+		3AFCCD9E1764D39B008D6E40 /* profile-image-placeholder.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3AFCCD9C1764D39A008D6E40 /* profile-image-placeholder.jpeg */; };
+		3AFCCD9F1764D39B008D6E40 /* profile-image-placeholder@2x.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3AFCCD9D1764D39B008D6E40 /* profile-image-placeholder@2x.jpeg */; };
 		D603BB52B3794E95850C315D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 613EBCF0AC1F471AA8E1599C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -104,8 +104,8 @@
 		3A775BDA17511EB900B08D1F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		3ABD1BE21743E071000C08D0 /* MySettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySettingsViewController.h; path = single/MySettingsViewController.h; sourceTree = "<group>"; };
 		3ABD1BE31743E071000C08D0 /* MySettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySettingsViewController.m; path = single/MySettingsViewController.m; sourceTree = "<group>"; };
-		3AFCCD9C1764D39A008D6E40 /* profile-image-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-image-placeholder.png"; sourceTree = "<group>"; };
-		3AFCCD9D1764D39B008D6E40 /* profile-image-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-image-placeholder@2x.png"; sourceTree = "<group>"; };
+		3AFCCD9C1764D39A008D6E40 /* profile-image-placeholder.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "profile-image-placeholder.jpeg"; sourceTree = "<group>"; };
+		3AFCCD9D1764D39B008D6E40 /* profile-image-placeholder@2x.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "profile-image-placeholder@2x.jpeg"; sourceTree = "<group>"; };
 		613EBCF0AC1F471AA8E1599C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A49791BCD64167B4E28849 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -318,8 +318,8 @@
 		3AFCCD991764D392008D6E40 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				3AFCCD9C1764D39A008D6E40 /* profile-image-placeholder.png */,
-				3AFCCD9D1764D39B008D6E40 /* profile-image-placeholder@2x.png */,
+				3AFCCD9C1764D39A008D6E40 /* profile-image-placeholder.jpeg */,
+				3AFCCD9D1764D39B008D6E40 /* profile-image-placeholder@2x.jpeg */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -430,8 +430,8 @@
 				3A1035A817466AF7008C6AB7 /* css.css in Resources */,
 				3A1035A917466AF7008C6AB7 /* index.html in Resources */,
 				3A775BDB17511EB900B08D1F /* Settings.bundle in Resources */,
-				3AFCCD9E1764D39B008D6E40 /* profile-image-placeholder.png in Resources */,
-				3AFCCD9F1764D39B008D6E40 /* profile-image-placeholder@2x.png in Resources */,
+				3AFCCD9E1764D39B008D6E40 /* profile-image-placeholder.jpeg in Resources */,
+				3AFCCD9F1764D39B008D6E40 /* profile-image-placeholder@2x.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

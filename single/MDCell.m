@@ -7,8 +7,15 @@
 //
 
 #import "MDCell.h"
+#import "UIImageView+AFNetworking.h"
+#import "Example.h"
 
-@implementation MDCell
+@implementation MDCell {
+@private
+    __strong Example *_cell;
+}
+
+@synthesize cell = _cell;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -24,6 +31,14 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void) setCell:(Example *)cell2 {
+    _cell = cell2;
+    
+    [self.imageView setImageWithURL:[NSURL URLWithString:_cell.item]
+                   placeholderImage:[UIImage imageNamed:@"profile-image-placeholder.png"]];
+    [self setNeedsLayout];
 }
 
 - (void)layoutSubviews

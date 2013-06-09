@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MDCell : UITableViewCell 
+@class Example;
+
+@interface MDCell : UITableViewCell {
+    Example *cell;
+}
+@property (nonatomic, strong) Example *cell;
 
 @end

@@ -74,19 +74,32 @@
                 initWithStyle:UITableViewCellStyleSubtitle
                 reuseIdentifier:CellIdentifier];
     }
-    [cell.imageView setImageWithURL:[NSURL URLWithString:[_itemArray objectAtIndex:indexPath.row]]
-                   placeholderImage:[UIImage imageNamed:@"placeholder.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType)
-     {
-       
-     }];
+    cell.cell = [_itemArray objectAtIndex:indexPath.row];
 
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    return 320;
+    return 260;
 }
+
+//- (void)reload:(id)sender {
+//    [_activityIndicatorView startAnimating];
+//    self.navigationItem.rightBarButtonItem.enabled = NO;
+//    
+//    [Example globalTimelinePostsWithBlock:^(NSArray *posts, NSError *error) {
+//        if (error) {
+//            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
+//        } else {
+//            _posts = posts;
+//            [self.tableView reloadData];
+//        }
+//        
+//        [_activityIndicatorView stopAnimating];
+//        self.navigationItem.rightBarButtonItem.enabled = YES;
+//    }];
+//}
 
 #pragma mark - search handler
 

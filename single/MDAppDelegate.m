@@ -179,6 +179,15 @@
     return ex;
 }
 
+- (Example *) getItemWithURL: (NSString *) url {
+    Example *ex = (Example *)[NSEntityDescription insertNewObjectForEntityForName:@"Example" inManagedObjectContext:managedObjectContext];
+	
+//	NSNumber *digits =[NSNumber numberWithInt:i];
+//	ex.digits = digits;
+	ex.item = url;
+    return ex;
+}
+
 // for 500px
 -(NSDictionary *)jsonDictionaryForRequest:(NSURLRequest *)urlRequest expectingResponseCode:(NSInteger)httpResponseCode
 {
@@ -260,7 +269,7 @@
 #ifdef DEBUG
         //        NSLog(@"%s|%@",__PRETTY_FUNCTION__,[item objectForKey:@"image_url"][0]);
 #endif
-        [self.itemsArray addObject:[item objectForKey:@"image_url"][0]];
+        [self.itemsArray addObject:[self getItemWithURL:[item objectForKey:@"image_url"][0]]];
     }
 }
 

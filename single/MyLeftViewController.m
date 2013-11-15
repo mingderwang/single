@@ -47,7 +47,7 @@
 
 - (void) initListItems {
     MDAppDelegate *app = (MDAppDelegate *)[[UIApplication sharedApplication] delegate];
-    self.itemArray = [NSArray arrayWithArray:app.itemArray];
+    self.itemArray = [NSMutableArray arrayWithArray:app.itemArray];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

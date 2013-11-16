@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    NSString *firmwareVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    
+    [[NSUserDefaults standardUserDefaults] setValue:firmwareVersion forKey:@"version_preference"];
 }
 
 - (void)didReceiveMemoryWarning

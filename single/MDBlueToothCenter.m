@@ -44,6 +44,7 @@ NSString * const kObjectRSSI = @"objectRSSI";
 }
 
 -(void) stopScan {
+    [timer invalidate];
     [manager stopScan];
 }
 
@@ -66,9 +67,7 @@ NSString * const kObjectRSSI = @"objectRSSI";
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central{
     if (![self supportBLE])
     {
-        @throw ([NSError errorWithDomain:@"Bluetooth LE is not supported on this device."
-                                    code:404
-                                userInfo:nil]);
+//        @throw ([NSError errorWithDomain:@"Bluetooth LE is not supported on this device." code:404 userInfo:nil]);
     }
 }
 
@@ -77,6 +76,10 @@ NSString * const kObjectRSSI = @"objectRSSI";
     {
         case CBCentralManagerStatePoweredOn:
             return TRUE;
+        case CBCentralManagerStateUnsupported:
+            [[[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Error",nil) message:NSLocalizedString(@"This device does not support Bluetooth Low Energy.", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles: nil] show];
+            return FALSE;
+            break;
         default:
             return FALSE;
     }

@@ -16,11 +16,11 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>DefaultValue</key>
-			<string>1.0</string>
+			<string>0.0.0</string>
 			<key>IsSecure</key>
 			<false/>
 			<key>Key</key>
-			<string>name_preference</string>
+			<string>version_preference</string>
 			<key>KeyboardType</key>
 			<string>Alphabet</string>
 			<key>Title</key>

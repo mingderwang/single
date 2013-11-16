@@ -16,6 +16,7 @@
 @implementation MDCenterViewController
 
 #define kGuard_reference @"kGuard_reference"
+
 extern NSString * const kMDDiscoverPeripheralRSSINotification;//= @"com.katdc.bluetooth.discoverPeripheralRSSI";
 extern NSString * const kObjectRSSI;//= @"objectRSSI";
 
@@ -65,7 +66,7 @@ extern NSString * const kObjectRSSI;//= @"objectRSSI";
 #endif 
         
         self.RSSIView.value = -1 *[rssi floatValue];
-        self.value.text = [NSString stringWithFormat: @"RSSI = %f dB", [rssi floatValue]];
+        self.value.text = [NSString stringWithFormat: @"RSSI = %2.0f dB", [rssi floatValue]];
     }];
 }
 

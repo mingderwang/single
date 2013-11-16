@@ -32,6 +32,8 @@
 		3A72E950173E43A600E86F31 /* MySidePanelControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A72E94F173E43A600E86F31 /* MySidePanelControllerViewController.m */; };
 		3A72E953173E4CA300E86F31 /* MyLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A72E952173E4CA200E86F31 /* MyLeftViewController.m */; };
 		3AAA6ACC1836777700513747 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3AAA6ACB1836777700513747 /* Settings.bundle */; };
+		3AAA6ACF18373D4600513747 /* MDBlueToothCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA6ACE18373D4600513747 /* MDBlueToothCenter.m */; };
+		3AAA6AD118373D8F00513747 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAA6AD018373D8F00513747 /* CoreBluetooth.framework */; };
 		3ABD1BE41743E072000C08D0 /* MySettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD1BE31743E071000C08D0 /* MySettingsViewController.m */; };
 		D603BB52B3794E95850C315D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 613EBCF0AC1F471AA8E1599C /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -81,6 +83,9 @@
 		3A72E951173E4CA200E86F31 /* MyLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLeftViewController.h; sourceTree = "<group>"; };
 		3A72E952173E4CA200E86F31 /* MyLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLeftViewController.m; sourceTree = "<group>"; };
 		3AAA6ACB1836777700513747 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		3AAA6ACD18373D4600513747 /* MDBlueToothCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDBlueToothCenter.h; sourceTree = "<group>"; };
+		3AAA6ACE18373D4600513747 /* MDBlueToothCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDBlueToothCenter.m; sourceTree = "<group>"; };
+		3AAA6AD018373D8F00513747 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		3ABD1BE21743E071000C08D0 /* MySettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySettingsViewController.h; path = single/MySettingsViewController.h; sourceTree = "<group>"; };
 		3ABD1BE31743E071000C08D0 /* MySettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySettingsViewController.m; path = single/MySettingsViewController.m; sourceTree = "<group>"; };
 		613EBCF0AC1F471AA8E1599C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AAA6AD118373D8F00513747 /* CoreBluetooth.framework in Frameworks */,
 				3A1035B217468114008C6AB7 /* CoreData.framework in Frameworks */,
 				3A435D8A173E29C80085FF88 /* UIKit.framework in Frameworks */,
 				3A435D8C173E29C80085FF88 /* Foundation.framework in Frameworks */,
@@ -165,6 +171,8 @@
 				3A435D99173E29C80085FF88 /* MDAppDelegate.m */,
 				3A72E94E173E43A600E86F31 /* MySidePanelControllerViewController.h */,
 				3A72E94F173E43A600E86F31 /* MySidePanelControllerViewController.m */,
+				3AAA6ACD18373D4600513747 /* MDBlueToothCenter.h */,
+				3AAA6ACE18373D4600513747 /* MDBlueToothCenter.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 		3A435D88173E29C80085FF88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AAA6AD018373D8F00513747 /* CoreBluetooth.framework */,
 				3A1035B117468113008C6AB7 /* CoreData.framework */,
 				3A435D89173E29C80085FF88 /* UIKit.framework */,
 				3A435D8B173E29C80085FF88 /* Foundation.framework */,
@@ -421,6 +430,7 @@
 				3A72E953173E4CA300E86F31 /* MyLeftViewController.m in Sources */,
 				3ABD1BE41743E072000C08D0 /* MySettingsViewController.m in Sources */,
 				3A10359417466A4D008C6AB7 /* OnlineHelpViewController.m in Sources */,
+				3AAA6ACF18373D4600513747 /* MDBlueToothCenter.m in Sources */,
 				3A1035AD17467C3B008C6AB7 /* CodeDataExample.xcdatamodeld in Sources */,
 				3A1035B017467CDB008C6AB7 /* Example.m in Sources */,
 			);
@@ -545,7 +555,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "single/single-Prefix.pch";
 				INFOPLIST_FILE = "single/single-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -559,7 +569,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "single/single-Prefix.pch";
 				INFOPLIST_FILE = "single/single-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

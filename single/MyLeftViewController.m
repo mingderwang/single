@@ -15,6 +15,8 @@
 @implementation MyLeftViewController
 @synthesize itemArray;
 
+#define kGuard_reference @"kGuard_reference"
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,6 +29,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initListItems];
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    BOOL picturePreference= [userDefaults boolForKey:kGuard_reference];
+#ifdef DEBUG
+    NSLog(@"%s|%d",__PRETTY_FUNCTION__,picturePreference);
+#endif
 }
 
 - (void)didReceiveMemoryWarning

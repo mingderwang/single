@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "Example.h"
+#import "MDBlueToothCenter.h"
 
 @interface MDAppDelegate : UIResponder <UIApplicationDelegate> {
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
-    
-	NSMutableArray *itemArray;
 }
+
 @property (nonatomic, retain) NSMutableArray *itemArray;
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) MDBlueToothCenter *BLEcenter;
 
 @end

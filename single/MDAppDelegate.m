@@ -7,6 +7,7 @@
 //
 
 #import "MDAppDelegate.h"
+#import "MDBlueToothCenter.h"
 
 @interface MDAppDelegate (PrivateCoreDataStack)
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
@@ -15,7 +16,6 @@
 @end
 
 @implementation MDAppDelegate
-@synthesize itemArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -31,6 +31,9 @@
     if ([self.itemArray count] == 0) {
         [self initMockData];
     }
+    
+    // start BLEcenter
+    self.BLEcenter = [MDBlueToothCenter getDefaultInstance];
     return YES;
 }
 							

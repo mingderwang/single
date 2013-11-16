@@ -32,13 +32,13 @@
 			<key>DefaultValue</key>
 			<true/>
 			<key>Key</key>
-			<string>enabled_preference</string>
+			<string>kGuard_reference</string>
 			<key>Title</key>
 			<string>Guard</string>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 		</dict>
-        <dict>
+		<dict>
 			<key>Title</key>
 			<string>Range</string>
 			<key>Type</key>

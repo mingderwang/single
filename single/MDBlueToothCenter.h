@@ -14,6 +14,8 @@
     id delegate;
     CBCentralManager *manager;
     CBPeripheral *firstPeripheral;
+    BOOL supportBLE;
+    BOOL isScanning;
 }
 
 @property (nonatomic, strong) NSMutableArray *dicoveredPeripherals;

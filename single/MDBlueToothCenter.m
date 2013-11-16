@@ -31,6 +31,8 @@ NSString * const kObjectRSSI = @"objectRSSI";
     {
         self.dicoveredPeripherals = [NSMutableArray new];
         manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+        supportBLE = NO;
+        isScanning = NO;
     }
     
     return self;
@@ -38,14 +40,22 @@ NSString * const kObjectRSSI = @"objectRSSI";
 
 
 -(void) startScan {
-    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:TRUE], CBCentralManagerScanOptionAllowDuplicatesKey, nil];
-    
-    [manager scanForPeripheralsWithServices:self.dicoveredPeripherals options:options];
+    if (!isScanning) {
+        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:TRUE], CBCentralManagerScanOptionAllowDuplicatesKey, nil];
+        
+        [manager scanForPeripheralsWithServices:self.dicoveredPeripherals options:options];
+        isScanning = YES;
+    }
 }
 
 -(void) stopScan {
-    [timer invalidate];
-    [manager stopScan];
+    if (isScanning) {
+        if (timer != nil) {
+            [timer invalidate];
+        }
+        [manager stopScan];
+        isScanning = NO;
+    }
 }
 
 #pragma mark - CBCentralManagerDelegate
@@ -65,13 +75,14 @@ NSString * const kObjectRSSI = @"objectRSSI";
  *
  */
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central{
-    if (![self supportBLE])
+    supportBLE = [self checkSupportBLE];
+    if (!supportBLE)
     {
 //        @throw ([NSError errorWithDomain:@"Bluetooth LE is not supported on this device." code:404 userInfo:nil]);
     }
 }
 
-- (BOOL) supportBLE {
+- (BOOL) checkSupportBLE {
     switch ([manager state])
     {
         case CBCentralManagerStatePoweredOn:
@@ -83,7 +94,6 @@ NSString * const kObjectRSSI = @"objectRSSI";
         default:
             return FALSE;
     }
-
 }
 
 #pragma mark - delegate

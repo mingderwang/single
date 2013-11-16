@@ -17,6 +17,8 @@
 
 @implementation MDAppDelegate
 
+@synthesize BLEcenter;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.

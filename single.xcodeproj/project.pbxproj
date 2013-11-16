@@ -34,6 +34,8 @@
 		3AAA6ACC1836777700513747 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3AAA6ACB1836777700513747 /* Settings.bundle */; };
 		3AAA6ACF18373D4600513747 /* MDBlueToothCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA6ACE18373D4600513747 /* MDBlueToothCenter.m */; };
 		3AAA6AD118373D8F00513747 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAA6AD018373D8F00513747 /* CoreBluetooth.framework */; };
+		3AAA6AD618374E2700513747 /* MeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA6AD518374E2700513747 /* MeterView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3AAA6ADB1837979300513747 /* MDCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA6ADA1837979300513747 /* MDCenterViewController.m */; };
 		3ABD1BE41743E072000C08D0 /* MySettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD1BE31743E071000C08D0 /* MySettingsViewController.m */; };
 		D603BB52B3794E95850C315D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 613EBCF0AC1F471AA8E1599C /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -86,6 +88,10 @@
 		3AAA6ACD18373D4600513747 /* MDBlueToothCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDBlueToothCenter.h; sourceTree = "<group>"; };
 		3AAA6ACE18373D4600513747 /* MDBlueToothCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDBlueToothCenter.m; sourceTree = "<group>"; };
 		3AAA6AD018373D8F00513747 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		3AAA6AD418374E2700513747 /* MeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeterView.h; sourceTree = "<group>"; };
+		3AAA6AD518374E2700513747 /* MeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeterView.m; sourceTree = "<group>"; };
+		3AAA6AD91837979300513747 /* MDCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCenterViewController.h; sourceTree = "<group>"; };
+		3AAA6ADA1837979300513747 /* MDCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCenterViewController.m; sourceTree = "<group>"; };
 		3ABD1BE21743E071000C08D0 /* MySettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySettingsViewController.h; path = single/MySettingsViewController.h; sourceTree = "<group>"; };
 		3ABD1BE31743E071000C08D0 /* MySettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySettingsViewController.m; path = single/MySettingsViewController.m; sourceTree = "<group>"; };
 		613EBCF0AC1F471AA8E1599C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,8 +177,6 @@
 				3A435D99173E29C80085FF88 /* MDAppDelegate.m */,
 				3A72E94E173E43A600E86F31 /* MySidePanelControllerViewController.h */,
 				3A72E94F173E43A600E86F31 /* MySidePanelControllerViewController.m */,
-				3AAA6ACD18373D4600513747 /* MDBlueToothCenter.h */,
-				3AAA6ACE18373D4600513747 /* MDBlueToothCenter.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -224,7 +228,10 @@
 		3A435D8F173E29C80085FF88 /* single */ = {
 			isa = PBXGroup;
 			children = (
+				3AAA6AD81837975F00513747 /* CenterView */,
+				3AAA6AD71837973500513747 /* BLE */,
 				3A340110173F8E4D00AA668D /* Home */,
+				3AAA6AD318374E1900513747 /* MeterView */,
 				3A340111173F8EB400AA668D /* SearchList */,
 				3ABD1BDE1743E003000C08D0 /* Settings */,
 				3A10359117466A25008C6AB7 /* Online Help */,
@@ -267,6 +274,33 @@
 				3A435DB9173E29C90085FF88 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3AAA6AD318374E1900513747 /* MeterView */ = {
+			isa = PBXGroup;
+			children = (
+				3AAA6AD418374E2700513747 /* MeterView.h */,
+				3AAA6AD518374E2700513747 /* MeterView.m */,
+			);
+			name = MeterView;
+			sourceTree = "<group>";
+		};
+		3AAA6AD71837973500513747 /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				3AAA6ACD18373D4600513747 /* MDBlueToothCenter.h */,
+				3AAA6ACE18373D4600513747 /* MDBlueToothCenter.m */,
+			);
+			name = BLE;
+			sourceTree = "<group>";
+		};
+		3AAA6AD81837975F00513747 /* CenterView */ = {
+			isa = PBXGroup;
+			children = (
+				3AAA6AD91837979300513747 /* MDCenterViewController.h */,
+				3AAA6ADA1837979300513747 /* MDCenterViewController.m */,
+			);
+			name = CenterView;
 			sourceTree = "<group>";
 		};
 		3ABD1BDE1743E003000C08D0 /* Settings */ = {
@@ -329,6 +363,11 @@
 				CLASSPREFIX = MD;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Kat Digital Corp.";
+				TargetAttributes = {
+					3A435D85173E29C80085FF88 = {
+						DevelopmentTeam = 5D564Y297K;
+					};
+				};
 			};
 			buildConfigurationList = 3A435D81173E29C80085FF88 /* Build configuration list for PBXProject "single" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -428,9 +467,11 @@
 				3A435D9A173E29C80085FF88 /* MDAppDelegate.m in Sources */,
 				3A72E950173E43A600E86F31 /* MySidePanelControllerViewController.m in Sources */,
 				3A72E953173E4CA300E86F31 /* MyLeftViewController.m in Sources */,
+				3AAA6AD618374E2700513747 /* MeterView.m in Sources */,
 				3ABD1BE41743E072000C08D0 /* MySettingsViewController.m in Sources */,
 				3A10359417466A4D008C6AB7 /* OnlineHelpViewController.m in Sources */,
 				3AAA6ACF18373D4600513747 /* MDBlueToothCenter.m in Sources */,
+				3AAA6ADB1837979300513747 /* MDCenterViewController.m in Sources */,
 				3A1035AD17467C3B008C6AB7 /* CodeDataExample.xcdatamodeld in Sources */,
 				3A1035B017467CDB008C6AB7 /* Example.m in Sources */,
 			);
@@ -552,11 +593,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A6A49791BCD64167B4E28849 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "single/single-Prefix.pch";
 				INFOPLIST_FILE = "single/single-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -566,11 +610,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A6A49791BCD64167B4E28849 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "single/single-Prefix.pch";
 				INFOPLIST_FILE = "single/single-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

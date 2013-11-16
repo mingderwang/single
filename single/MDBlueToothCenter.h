@@ -13,6 +13,7 @@
 @interface MDBlueToothCenter : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate> {
     id delegate;
     CBCentralManager *manager;
+    CBPeripheral *firstPeripheral;
 }
 
 @property (nonatomic, strong) NSMutableArray *dicoveredPeripherals;

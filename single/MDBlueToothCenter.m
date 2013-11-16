@@ -10,7 +10,10 @@
 
 @implementation MDBlueToothCenter
 static MDBlueToothCenter *instance = nil;
+static NSTimer *timer;
 
+NSString * const kMDDiscoverPeripheralRSSINotification = @"com.katdc.bluetooth.discoverPeripheralRSSI";
+NSString * const kObjectRSSI = @"objectRSSI";
 #pragma mark - singleton
 
 // a singleton
@@ -78,6 +81,119 @@ static MDBlueToothCenter *instance = nil;
             return FALSE;
     }
 
+}
+
+#pragma mark - delegate
+/*!
+ *  @method centralManager:didDiscoverPeripheral:advertisementData:RSSI:
+ *
+ *  @param central              The central manager providing this update.
+ *  @param peripheral           A <code>CBPeripheral</code> object.
+ *  @param advertisementData    A dictionary containing any advertisement and scan response data.
+ *  @param RSSI                 The current RSSI of <i>peripheral</i>, in dBm. A value of <code>127</code> is reserved and indicates the RSSI
+ *								was not available.
+ *
+ *  @discussion                 This method is invoked while scanning, upon the discovery of <i>peripheral</i> by <i>central</i>. A discovered peripheral must
+ *                              be retained in order to use it; otherwise, it is assumed to not be of interest and will be cleaned up by the central manager. For
+ *                              a list of <i>advertisementData</i> keys, see {@link CBAdvertisementDataLocalNameKey} and other similar constants.
+ *
+ *  @seealso                    CBAdvertisementData.h
+ *
+ */
+
+- (void)centralManager:(CBCentralManager *)central
+ didDiscoverPeripheral:(CBPeripheral *)peripheral
+     advertisementData:(NSDictionary *)advertisementData
+                  RSSI:(NSNumber *)RSSI {
+    
+    NSLog(@"Discovered %@", peripheral.name);
+    
+    NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                 RSSI, kObjectRSSI,
+                                 nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMDDiscoverPeripheralRSSINotification
+                                                        object:nil userInfo:userInfo];
+    
+   // When you have found a peripheral device that you’re interested in connecting to, stop scanning for other devices in order to save power.
+        
+//        [manager stopScan];
+//    NSLog(@"Scanning stopped");
+    
+    //
+    
+    if(![self.dicoveredPeripherals containsObject:peripheral])
+        [self.dicoveredPeripherals addObject:peripheral];
+    
+    [manager retrievePeripheralsWithIdentifiers:@[peripheral.identifier]];
+}
+
+/*
+ Invoked when the central manager retrieves the list of known peripherals.
+ Automatically connect to first known peripheral
+ */
+- (void)centralManager:(CBCentralManager *)central didRetrievePeripherals:(NSArray *)peripherals
+{
+    NSLog(@"Retrieved peripheral: %d - %@", [peripherals count], peripherals);
+    
+    [self stopScan];
+    
+    /* If there are any known devices, automatically connect to it.*/
+    if([peripherals count] >= 1)
+    {
+        firstPeripheral = [peripherals objectAtIndex:0];
+        
+        [manager connectPeripheral:firstPeripheral
+                           options:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey]];
+    }
+}
+
+-(void) pingRSSI {
+    if(firstPeripheral != nil) {
+        [firstPeripheral readRSSI];
+        NSLog(@"-->%@",firstPeripheral.RSSI);
+    }
+}
+/*
+ Invoked whenever a connection is succesfully created with the peripheral.
+ Discover available services on the peripheral
+ */
+- (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
+{
+    NSLog(@"Did connect to peripheral: %@", peripheral);
+  
+    if (timer == NULL) {
+        timer = [NSTimer scheduledTimerWithTimeInterval: 5
+                                                 target: self
+                                               selector: @selector(pingRSSI)
+                                               userInfo: nil
+                                                repeats: YES];
+    }
+    [peripheral setDelegate:self];
+    [peripheral readRSSI];
+}
+
+/*!
+ *  @method peripheralDidUpdateRSSI:error:
+ *
+ *  @param peripheral        The peripheral providing this update.
+ *        @param error                If an error occurred, the cause of the failure.
+ *
+ *  @discussion                        This method returns the result of a @link readRSSI: @/link call.
+ */
+- (void)peripheralDidUpdateRSSI:(CBPeripheral *)peripheral error:(NSError *)error
+{
+    NSLog(@"peripheralDidUpdateRSSI:%@ error:%@", peripheral, [error localizedDescription]);
+    if(nil!=peripheral) {
+        
+        NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                  peripheral.RSSI, kObjectRSSI,
+                                  nil];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kMDDiscoverPeripheralRSSINotification
+                                                            object:nil userInfo:userInfo];
+    }
+    
 }
 
 @end

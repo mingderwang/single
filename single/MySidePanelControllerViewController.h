@@ -7,6 +7,7 @@
 //
 
 #import "JASidePanelController.h"
+#import "MeterView.h"
 
 @interface MySidePanelControllerViewController : JASidePanelController
 

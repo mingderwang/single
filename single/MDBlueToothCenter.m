@@ -50,9 +50,7 @@ NSString * const kObjectRSSI = @"objectRSSI";
 
 -(void) stopScan {
     if (isScanning) {
-        if (timer != nil) {
-            [timer invalidate];
-        }
+        [self stopTimer];
         [manager stopScan];
         isScanning = NO;
     }
@@ -167,6 +165,32 @@ NSString * const kObjectRSSI = @"objectRSSI";
         NSLog(@"-->%@",firstPeripheral.RSSI);
     }
 }
+
+- (void) startTimerAction {
+    timer = [NSTimer scheduledTimerWithTimeInterval: 5
+                                                 target: self
+                                               selector: @selector(pingRSSI)
+                                               userInfo: nil
+                                                repeats: YES];
+}
+
+- (void) startTimer {
+    if (timer == NULL) {
+        // Start the long-running task and return immediately.
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            // Do the work associated with the task.
+            [self startTimerAction];
+        });
+    }
+}
+
+- (void) stopTimer {
+    if (timer != nil && [timer isValid]) {
+        [timer invalidate];
+        timer = nil;
+    }
+}
 /*
  Invoked whenever a connection is succesfully created with the peripheral.
  Discover available services on the peripheral
@@ -174,16 +198,9 @@ NSString * const kObjectRSSI = @"objectRSSI";
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
     NSLog(@"Did connect to peripheral: %@", peripheral);
-  
-    if (timer == NULL) {
-        timer = [NSTimer scheduledTimerWithTimeInterval: 5
-                                                 target: self
-                                               selector: @selector(pingRSSI)
-                                               userInfo: nil
-                                                repeats: YES];
-    }
     [peripheral setDelegate:self];
     [peripheral readRSSI];
+    [self startTimer];
 }
 
 /*!

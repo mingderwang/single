@@ -23,5 +23,7 @@
 + (MDBlueToothCenter *)getDefaultInstance;
 -(void) startScan;
 -(void) stopScan;
-
+- (void) startTimer;
+- (void) stopTimer;
+-(void) pingRSSI;
 @end

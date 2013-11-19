@@ -81,7 +81,7 @@ extern NSString * const kObjectRSSI;//= @"objectRSSI";
     if (isOnGaurd) {
         [self.center startScan];
     } else {
-        [self.center stopScan];
+//        [self.center stopScan];
     }
 }
 

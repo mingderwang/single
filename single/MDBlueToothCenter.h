@@ -15,10 +15,11 @@
     CBCentralManager *manager;
     CBPeripheral *firstPeripheral;
     BOOL supportBLE;
-    BOOL isScanning;
+    
 }
 
 @property (nonatomic, strong) NSMutableArray *dicoveredPeripherals;
+@property (nonatomic, getter = isAlarmOn) BOOL isScanning;
 
 + (MDBlueToothCenter *)getDefaultInstance;
 -(void) startScan;

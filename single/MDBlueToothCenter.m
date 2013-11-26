@@ -8,6 +8,7 @@
 
 #import "MDBlueToothCenter.h"
 
+
 @implementation MDBlueToothCenter
 
 # define READ_RSSI_INTERVAL 1
@@ -35,7 +36,7 @@ NSString * const kObjectRSSI = @"objectRSSI";
         self.dicoveredPeripherals = [NSMutableArray new];
         manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
         supportBLE = NO;
-        isScanning = NO;
+        _isScanning = YES;
     }
     
     return self;
@@ -43,19 +44,14 @@ NSString * const kObjectRSSI = @"objectRSSI";
 
 
 -(void) startScan {
-    if (!isScanning) {
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:TRUE], CBCentralManagerScanOptionAllowDuplicatesKey, nil];
-        
-        [manager scanForPeripheralsWithServices:nil options:options];
-        isScanning = YES;
-    }
+    _isScanning = YES;
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:TRUE], CBCentralManagerScanOptionAllowDuplicatesKey, nil];
+    
+    [manager scanForPeripheralsWithServices:nil options:options];
 }
 
 -(void) stopScan {
-    if (isScanning) {
-        [manager stopScan];
-        isScanning = NO;
-    }
+    _isScanning = NO;
 }
 
 #pragma mark - CBCentralManagerDelegate
@@ -213,7 +209,7 @@ NSString * const kObjectRSSI = @"objectRSSI";
         [[NSNotificationCenter defaultCenter] postNotificationName:kMDDiscoverPeripheralRSSINotification
                                                             object:nil userInfo:userInfo];
     }
-    if (isScanning) {
+    if (_isScanning) {
         [self startTimerAction];
     }
 }

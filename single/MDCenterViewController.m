@@ -8,6 +8,9 @@
 
 #import "MDCenterViewController.h"
 #import "MDAppDelegate.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import <CoreFoundation/CoreFoundation.h>
+#import "MDBlueToothCenter.h"
 
 @interface MDCenterViewController ()
 
@@ -16,6 +19,7 @@
 @implementation MDCenterViewController
 
 #define kGuard_reference @"kGuard_reference"
+#define kSlider_reference @"slider_reference"
 
 extern NSString * const kMDDiscoverPeripheralRSSINotification;//= @"com.katdc.bluetooth.discoverPeripheralRSSI";
 extern NSString * const kObjectRSSI;//= @"objectRSSI";
@@ -60,13 +64,19 @@ extern NSString * const kObjectRSSI;//= @"objectRSSI";
     [[NSNotificationCenter defaultCenter] addObserverForName: kMDDiscoverPeripheralRSSINotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *notification) {
         NSDictionary *dict = [notification userInfo];
         NSNumber *rssi = [dict objectForKey:kObjectRSSI];
+        BOOL alarm = [[MDBlueToothCenter getDefaultInstance] isAlarmOn] ;
+        
+        if (alarm && [rssi integerValue] < (max * -1)) {
+            AudioServicesPlaySystemSound(1005);
+        }
+        
         
 #ifdef DEBUG
         NSLog(@"%s|%@",__PRETTY_FUNCTION__,rssi);
 #endif 
         
         self.RSSIView.value = -1 *[rssi floatValue];
-        self.value.text = [NSString stringWithFormat: @"RSSI = %2.0f dB", [rssi floatValue]];
+        self.value.text = [NSString stringWithFormat: @"RSSI = %2.0f dB (%d)", [rssi floatValue], max];
     }];
 }
 
@@ -78,10 +88,15 @@ extern NSString * const kObjectRSSI;//= @"objectRSSI";
     NSLog(@"%s|%d",__PRETTY_FUNCTION__,isOnGaurd);
 #endif
     
+    max = [userDefaults integerForKey:kSlider_reference];
+#ifdef DEBUG
+    NSLog(@"%s|%d",__PRETTY_FUNCTION__,max);
+#endif
+    
     if (isOnGaurd) {
         [self.center startScan];
     } else {
-//        [self.center stopScan];
+        [self.center stopScan];
     }
 }
 

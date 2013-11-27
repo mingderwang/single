@@ -11,7 +11,7 @@
 
 @implementation MDBlueToothCenter
 
-# define READ_RSSI_INTERVAL 1
+# define READ_RSSI_INTERVAL 0.33
 
 static MDBlueToothCenter *instance = nil;
 static NSTimer *timer;
@@ -199,7 +199,7 @@ NSString * const kObjectRSSI = @"objectRSSI";
  */
 - (void)peripheralDidUpdateRSSI:(CBPeripheral *)peripheral error:(NSError *)error
 {
-    NSLog(@"peripheralDidUpdateRSSI:%@ error:%@", peripheral, [error localizedDescription]);
+//    NSLog(@"peripheralDidUpdateRSSI:%@ error:%@", peripheral, [error localizedDescription]);
     if(nil!=peripheral) {
         
         NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:

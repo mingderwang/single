@@ -66,16 +66,24 @@ extern NSString * const kObjectRSSI;//= @"objectRSSI";
         NSNumber *rssi = [dict objectForKey:kObjectRSSI];
         BOOL alarm = [[MDBlueToothCenter getDefaultInstance] isAlarmOn] ;
         
-        if (alarm && [rssi integerValue] < (max * -1)) {
+    
+        
+        float scale = ((-1.f *[rssi floatValue]) -35.f) * (100.f/65.f);
+        self.RSSIView.value = scale;
+        if(self.RSSIView.value < 0) {
+            self.RSSIView.value = 0.f;
+        }
+        if(self.RSSIView.value >100) {
+            self.RSSIView.value = 100.f;
+        }
+        if (alarm && scale >= max) {
             AudioServicesPlaySystemSound(1005);
         }
-        
-        
 #ifdef DEBUG
-        NSLog(@"%s|%@",__PRETTY_FUNCTION__,rssi);
-#endif 
+//        NSLog(@"%s|%f",__PRETTY_FUNCTION__,scale);
+#endif
         
-        self.RSSIView.value = -1 *[rssi floatValue];
+        
         self.value.text = [NSString stringWithFormat: @"RSSI = %2.0f dB (%d)", [rssi floatValue], max];
     }];
 }
